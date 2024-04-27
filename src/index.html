@@ -26,7 +26,8 @@
                 </div>
             </div>
             <div>
-                <button class="bg-Button text-white p-2.5 rounded-lg font-OpenSans text-sm cursor-pointer" id="search-btn">
+                <button class="bg-Button text-white p-2.5 rounded-lg font-OpenSans text-sm cursor-pointer"
+                    id="search-btn">
                     Search
                 </button>
             </div>
@@ -35,6 +36,8 @@
 
     <section class="flex flex-col justify-evenly items-center mt-10">
 
+        <p class="font-OpenSans text-sm font-bold text-Button" id="error"></p>
+        <p class="font-OpenSans text-sm font-bold text-Button" id="emptyerror"></p>
         <h3 class="font-OpenSans text-lg font-bold text-Button">Search your Location now...</h3>
         <div class="mt-4">
             <ul class="flex items-center gap-4">
@@ -67,7 +70,7 @@
             <h3 class="font-OpenSans font-medium text-lg ">Current Weather</h3>
             <h2 class="font-OpenSans font-bold text-4xl text-Button" id="Time">12:21</h2>
             <div class="flex items-center gap-5 p-5">
-                <img src="/assests/cloudy.png" class="w-40 h-40">
+                <img src="/assests/cloudy.png" class="w-40 h-40" id="Weather_Image">
                 <h2 class="font-OpenSans font-medium text-7xl" id="Degree_temp">28&degC</h2>
             </div>
             <p class="font-OpenSans text-xl text-gray-500 p-1" id="Main">Sunny</p>
