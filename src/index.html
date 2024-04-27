@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f7e4ab5434.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="flex items-center justify-between p-4">
+        <h3 class="font-OpenSans font-semibold text-lg">Weather<span class="text-Button">Pro</span></h3>
+
+        <div class="flex items-center justify-center">
+            <div class="location-logo mr-5">
+                <i class="fa-solid fa-location-dot fa-lg" style="color: #A52A2A" ;></i>
+            </div>
+            <div class="relative mr-2">
+                <input type="text"
+                    class="border-solid border-2 border-stone-200 p-2 rounded-lg font-poppins focus:outline-none w-96"
+                    placeholder="Enter a City" id="cityname">
+                <div
+                    class="absolute inset-y-0 right-0 pr-3 flex items-center bg-bg-color pl-3 rounded-r-lg border-solid border-y-2 border-r-2  border-stone-200">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div>
+                <button class="bg-Button text-white p-2.5 rounded-lg font-OpenSans text-sm" id="search-btn">
+                    Search
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="flex flex-col justify-evenly items-center mt-10">
+
+        <h3 class="font-OpenSans text-lg font-bold text-Button">Popular Location</h3>
+        <div class="mt-4">
+            <ul class="flex items-center gap-4">
+                <li class="p-2 bg-GreyBox font-OpenSans text-base font-medium rounded-lg">
+                    Coimbatore
+                </li>
+                <li class="p-2 bg-GreyBox font-OpenSans text-base font-medium rounded-lg">
+                    Chennai
+                </li>
+                <li class="p-2 bg-GreyBox font-OpenSans text-base font-medium rounded-lg">
+                    Munnar
+                </li>
+                <li class="p-2 bg-GreyBox font-OpenSans text-base font-medium rounded-lg">
+                    Bangalore
+                </li>
+            </ul>
+        </div>
+
+
+    </section>
+
+
+    <section class="flex items-center justify-evenly gap-3 mt-5">
+
+        <div class="p-5">
+            <h3 class="font-OpenSans font-medium text-lg ">Current Weather</h3>
+            <h2 class="font-OpenSans font-bold text-4xl text-Button" id="Time">12:21</h2>
+            <div class="flex items-center gap-5 p-5">
+                <img src="/assests/cloudy.png" class="w-40 h-40">
+                <h2 class="font-OpenSans font-medium text-7xl" id="Degree_temp">28&deg</h2>
+            </div>
+            <p class="font-OpenSans text-xl text-gray-500 p-1" id="About">Sunny</p>
+            <p class="font-OpenSans text-xl text-gray-500 p-1">There will be mostly <span id="decription">sunny</span>
+            </p>
+        </div>
+
+        <section class="flex items-center gap-3">
+
+            <div class="bg-GreyBox p-5 rounded-lg">
+                <div class="flex items-center gap-3">
+                    <img src="/assests/wind.png" class="w-12 h-12">
+                    <h2 class="font-OpenSans text-xl font-medium">Wind</h2>
+                </div>
+                <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Wind_results">23</h5>
+            </div>
+
+            <div class="bg-GreyBox p-5 rounded-lg">
+                <div class="flex items-center gap-3">
+                    <img src="/assests/humidity.png" class="w-12 h-12">
+                    <h2 class="font-OpenSans text-xl font-medium">Humidity</h2>
+                </div>
+                <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Wind_results">23</h5>
+            </div>
+
+            <div class="bg-GreyBox p-5 rounded-lg">
+                <div class="flex items-center gap-3">
+                    <img src="/assests/energy.png" class="w-12 h-12">
+                    <h2 class="font-OpenSans text-xl font-medium">Pressure</h2>
+                </div>
+                <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Wind_results">23</h5>
+            </div>
+
+            <div class="bg-GreyBox p-5 rounded-lg">
+                <div class="flex items-center gap-3">
+                    <img src="/assests/visibility.png" class="w-12 h-12">
+                    <h2 class="font-OpenSans text-xl font-medium">Visibility</h2>
+                </div>
+                <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Wind_results">23</h5>
+            </div>
+
+        </section>
+
+    </section>
+
+    <section id="FiveDaysForecast" class="mt-10 mb-10 flex flex-col justify-evenly items-center">
+
+        <div class="flex gap-2">
+            <h5 class="font-OpenSans text-xl text-Button font-semibold">Forecast</h5>
+            <button class="bg-Button p-1.5 text-Background font-OpenSans font-light text-xs rounded-sm">
+                5 Days
+            </button>
+        </div>
+
+        <ul class="flex gap-5 mt-5">
+            <li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl">
+                <h3 id="Date" class="font-OpenSans text-lg font-semibold">12/04/2024</h3>
+                <img src="/assests/cloudy.png" class="w-12 h-12">
+                <div class="mt3 text-center">
+                    <h5 class="font-OpenSans text-base font-medium m-1">Temp : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Wind : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Humidity : 25&deg</h5>
+                </div>
+            </li>
+
+            <li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl">
+                <h3 id="Date" class="font-OpenSans text-lg font-semibold">12/04/2024</h3>
+                <img src="/assests/cloudy.png" class="w-12 h-12">
+                <div class="mt3 text-center">
+                    <h5 class="font-OpenSans text-base font-medium m-1">Temp : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Wind : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Humidity : 25&deg</h5>
+                </div>
+            </li>
+
+            <li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl">
+                <h3 id="Date" class="font-OpenSans text-lg font-semibold">12/04/2024</h3>
+                <img src="/assests/cloudy.png" class="w-12 h-12">
+                <div class="mt3 text-center">
+                    <h5 class="font-OpenSans text-base font-medium m-1">Temp : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Wind : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Humidity : 25&deg</h5>
+                </div>
+            </li>
+
+            <li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl">
+                <h3 id="Date" class="font-OpenSans text-lg font-semibold">12/04/2024</h3>
+                <img src="/assests/cloudy.png" class="w-12 h-12">
+                <div class="mt3 text-center">
+                    <h5 class="font-OpenSans text-base font-medium m-1">Temp : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Wind : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Humidity : 25&deg</h5>
+                </div>
+            </li>
+
+            <li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl">
+                <h3 id="Date" class="font-OpenSans text-lg font-semibold">12/04/2024</h3>
+                <img src="/assests/cloudy.png" class="w-12 h-12">
+                <div class="mt3 text-center">
+                    <h5 class="font-OpenSans text-base font-medium m-1">Temp : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Wind : 25&deg</h5>
+                    <h5 class="font-OpenSans text-base font-medium m-1">Humidity : 25&deg</h5>
+                </div>
+            </li>
+        </ul>
+
+    </section>
+
+</body>
+
+</html>
