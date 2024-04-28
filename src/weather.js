@@ -217,4 +217,8 @@ async function GeoLocation() {
 // GeoLocation();
 Location_icon.addEventListener('click', () => {
     GeoLocation();
+    while (Dailyforecast.firstChild) {
+        Dailyforecast.removeChild(Dailyforecast.firstChild);
+    }
+
 })
