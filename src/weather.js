@@ -2,19 +2,28 @@ const Search_Btn = document.getElementById('search-btn');
 const City_Value = document.getElementById('City');
 const time = document.getElementById('Time');
 const Recent = document.getElementById('UnOrder-List');
+const Error = document.getElementById('error');
+const EmptyError = document.getElementById('emptyerror');
+const Dailyforecast = document.getElementById('List');
+const Temp = document.getElementById('Degree_temp')
+const main = document.getElementById('Main')
+const Description = document.getElementById('descriptions');
+const Wind = document.getElementById('Wind_results');
+const Humidy = document.getElementById('Humidity_results');
+const Pressure = document.getElementById('Pressure_results');
+const Visibility = document.getElementById('Visibility_results');
+const WeatherImage = document.getElementById('Weather_Image');
 
 const API_KEY = 'f957da4ecc2e9e6f16151391120c0fcd';
 
-function addingList(props) {
+function addingList(props) 
+{
     const html = `
     <li class="flex justify-between items-center text-white border-solid border-b-2 border-slate-100 p-2 Cityicon">
-    <h3>${props}</h3>
-</li>
-`
-
+       <h3>${props}</h3>
+    </li>`
     Recent.innerHTML += html;
 }
-
 
 (function DisplayingTime() {
 
@@ -34,17 +43,9 @@ function addingList(props) {
 
 })();
 
-const Temp = document.getElementById('Degree_temp')
-const main = document.getElementById('Main')
-const Description = document.getElementById('descriptions');
-const Wind = document.getElementById('Wind_results');
-const Humidy = document.getElementById('Humidity_results');
-const Pressure = document.getElementById('Pressure_results');
-const Visibility = document.getElementById('Visibility_results');
-const WeatherImage = document.getElementById('Weather_Image');
-
-function CurrentWeather(props) {
-    console.log(props);
+function CurrentWeather(props) 
+{
+    // console.log(props);
     const Temperature = (props.main.temp - 273.15).toFixed(2);
     Temp.innerText = `${Temperature}`;
 
@@ -80,13 +81,10 @@ function CurrentWeather(props) {
     else if (props.weather[0].main == 'Wind') {
         WeatherImage.src = '/assests/weather-app-img/images/wind.png';
     }
-
 }
 
-
-
-const Dailyforecast = document.getElementById('List');
-function FiveDay(props) {
+function FiveDay(props) 
+{
 
     const html =
         `<li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl border-solid border-2 border-slate-200">
@@ -98,71 +96,66 @@ function FiveDay(props) {
                 <h5 class="font-OpenSans text-base font-medium m-1">Humidity : ${props.main.humidity}&deg</h5>
             </div>
     </li>`
-
     Dailyforecast.innerHTML += html
-
-
 }
 
-function LoopingData(props) {
-
+function LoopingData(props) 
+{
     // console.log(props);
     props.forEach((element, i) => {
-        if (i == 0) {
+        if (i == 0) 
+        {
             CurrentWeather(element);
         }
-        else {
+        else 
+        {
             FiveDay(element);
         }
     });
-
 }
 
-function gettingForecast(weather_response) {
-
+function gettingForecast(weather_response)
+{
     const emptyArray = []
     const ForecastData = weather_response.list.filter(data => {
         const Final = new Date(data.dt_txt).getDate();
-        if (!emptyArray.includes(Final)) {
-            return emptyArray.push(Final)
+        if (!emptyArray.includes(Final))
+        {
+            return emptyArray.push(Final);
         }
     });
-
     LoopingData(ForecastData);
     // console.log(ForecastData);
 }
 
-const Error = document.getElementById('error');
-const EmptyError = document.getElementById('emptyerror');
 async function GettingCityDetails(...props) {
-    try {
+    try 
+    {
         const WEATHER_API = `http://api.openweathermap.org/data/2.5/forecast?lat=${props[1]}&lon=${props[2]}&appid=${API_KEY}`;
         const Weather_Details = await fetch(WEATHER_API);
         const Weather_JSON = await Weather_Details.json();
-
         // console.log(Weather_JSON);
         gettingForecast(Weather_JSON);
     }
-    catch (error) {
+    catch (error) 
+    {
         Error.innerText = `${error}`;
     }
 }
 
-
-
-async function gettingGeo(props) {
-    try {
-
+async function gettingGeo(props) 
+{
+    try
+    {
         const GEO_API = `http://api.openweathermap.org/geo/1.0/direct?q=${props}&limit=1&appid=${API_KEY}`;
         const GeoFetching = await fetch(GEO_API);
         const GeoJson = await GeoFetching.json();
         // console.log(GeoJson);
-
         const { name, lat, lon } = GeoJson[0];
-
         GettingCityDetails(name, lat, lon);
     }
-    catch (error) {
+    catch (error) 
+    {
         Error.innerText = 'Please enter a valid Location......';
         Error.innerText = `${error}`;
     }
@@ -170,33 +163,40 @@ async function gettingGeo(props) {
 
 Search_Btn.addEventListener('click', () => {
 
-    if (City_Value.value === "") {
+    if (City_Value.value === "") 
+    {
         EmptyError.innerText = 'Please enter a Location.....';
     }
-    else {
+
+    else 
+    {
         const CityName = City_Value.value.trim();
-        gettingGeo(CityName);
-
         City_Value.value = '';
-
-        while (Dailyforecast.firstChild) {
+        localStorage.setItem('City', CityName);
+        while (Dailyforecast.firstChild) 
+        {
             Dailyforecast.removeChild(Dailyforecast.firstChild);
         }
-
-        localStorage.setItem('City', CityName);
-        if (localStorage.getItem('City')) {
-            addingList(localStorage.getItem('City'));
-        }
+        gettingGeo(CityName);
     }
 })
 
-Recent.addEventListener('click',(e)=>{
-    console.log('clicked');
+if (localStorage.getItem('City')) {
+    addingList(localStorage.getItem('City'));
+}
+
+Recent.addEventListener('click',(e)=>
+{
+    // console.log('clicked');
     if(e.target.classList.contains('Cityicon'))
     {
         const CityNames = e.target.textContent;
+        while (Dailyforecast.firstChild) 
+        {
+            Dailyforecast.removeChild(Dailyforecast.firstChild);
+        }
         gettingGeo(CityNames);
     }
-})
+});
 
 
