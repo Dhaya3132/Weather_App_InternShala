@@ -7,9 +7,9 @@ module.exports = {
         'OpenSans':['Open Sans'],
       },
       colors:{
-        'Button':'#A52A2A',
+        'Button':'#F94D00',
         'Background':'#ffffff',
-        'GreyBox':'#f5f5f5',
+        'GreyBox':'#F7F7F7',
       },
       screens: {
         // 'ssm': {'max': '426px'},
