@@ -13,11 +13,11 @@ const Humidy = document.getElementById('Humidity_results');
 const Pressure = document.getElementById('Pressure_results');
 const Visibility = document.getElementById('Visibility_results');
 const WeatherImage = document.getElementById('Weather_Image');
+const Location_icon = document.getElementById('location_icon');
 
 const API_KEY = 'f957da4ecc2e9e6f16151391120c0fcd';
 
-function addingList(props) 
-{
+function addingList(props) {
     const html = `
     <li class="flex justify-between items-center text-white border-solid border-b-2 border-slate-100 p-2 Cityicon">
        <h3>${props}</h3>
@@ -43,8 +43,7 @@ function addingList(props)
 
 })();
 
-function CurrentWeather(props) 
-{
+function CurrentWeather(props) {
     // console.log(props);
     const Temperature = (props.main.temp - 273.15).toFixed(2);
     Temp.innerText = `${Temperature}`;
@@ -83,8 +82,7 @@ function CurrentWeather(props)
     }
 }
 
-function FiveDay(props) 
-{
+function FiveDay(props) {
 
     const html =
         `<li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl border-solid border-2 border-slate-200">
@@ -99,28 +97,23 @@ function FiveDay(props)
     Dailyforecast.innerHTML += html
 }
 
-function LoopingData(props) 
-{
+function LoopingData(props) {
     // console.log(props);
     props.forEach((element, i) => {
-        if (i == 0) 
-        {
+        if (i == 0) {
             CurrentWeather(element);
         }
-        else 
-        {
+        else {
             FiveDay(element);
         }
     });
 }
 
-function gettingForecast(weather_response)
-{
+function gettingForecast(weather_response) {
     const emptyArray = []
     const ForecastData = weather_response.list.filter(data => {
         const Final = new Date(data.dt_txt).getDate();
-        if (!emptyArray.includes(Final))
-        {
+        if (!emptyArray.includes(Final)) {
             return emptyArray.push(Final);
         }
     });
@@ -129,24 +122,20 @@ function gettingForecast(weather_response)
 }
 
 async function GettingCityDetails(...props) {
-    try 
-    {
+    try {
         const WEATHER_API = `http://api.openweathermap.org/data/2.5/forecast?lat=${props[1]}&lon=${props[2]}&appid=${API_KEY}`;
         const Weather_Details = await fetch(WEATHER_API);
         const Weather_JSON = await Weather_Details.json();
         // console.log(Weather_JSON);
         gettingForecast(Weather_JSON);
     }
-    catch (error) 
-    {
+    catch (error) {
         Error.innerText = `${error}`;
     }
 }
 
-async function gettingGeo(props) 
-{
-    try
-    {
+async function gettingGeo(props) {
+    try {
         const GEO_API = `http://api.openweathermap.org/geo/1.0/direct?q=${props}&limit=1&appid=${API_KEY}`;
         const GeoFetching = await fetch(GEO_API);
         const GeoJson = await GeoFetching.json();
@@ -154,8 +143,7 @@ async function gettingGeo(props)
         const { name, lat, lon } = GeoJson[0];
         GettingCityDetails(name, lat, lon);
     }
-    catch (error) 
-    {
+    catch (error) {
         Error.innerText = 'Please enter a valid Location......';
         Error.innerText = `${error}`;
     }
@@ -163,18 +151,15 @@ async function gettingGeo(props)
 
 Search_Btn.addEventListener('click', () => {
 
-    if (City_Value.value === "") 
-    {
+    if (City_Value.value === "") {
         EmptyError.innerText = 'Please enter a Location.....';
     }
 
-    else 
-    {
+    else {
         const CityName = City_Value.value.trim();
         City_Value.value = '';
         localStorage.setItem('City', CityName);
-        while (Dailyforecast.firstChild) 
-        {
+        while (Dailyforecast.firstChild) {
             Dailyforecast.removeChild(Dailyforecast.firstChild);
         }
         gettingGeo(CityName);
@@ -185,16 +170,49 @@ if (localStorage.getItem('City')) {
     addingList(localStorage.getItem('City'));
 }
 
-Recent.addEventListener('click',(e)=>
-{
+Recent.addEventListener('click', (e) => {
     // console.log('clicked');
-    if(e.target.classList.contains('Cityicon'))
-    {
+    if (e.target.classList.contains('Cityicon')) {
         const CityNames = e.target.textContent;
-        while (Dailyforecast.firstChild) 
-        {
+        while (Dailyforecast.firstChild) {
             Dailyforecast.removeChild(Dailyforecast.firstChild);
         }
         gettingGeo(CityNames);
     }
 });
+
+const GeoLocationDetail = new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(currentPosition => {
+        resolve(
+            {
+                Latitude: currentPosition.coords.latitude,
+                Longitude: currentPosition.coords.longitude
+            }
+        );
+        reject(error);
+    });
+
+});
+
+async function GeoLocation() {
+
+    try {
+        const { Latitude, Longitude } = await GeoLocationDetail;
+        const GEO_URL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${Latitude}&lon=${Longitude}&limit=1&appid=${API_KEY}`;
+        const GEO_FETCH = await fetch(GEO_URL);
+        //    console.log(GEO_FETCH);
+        const Json = await GEO_FETCH.json();
+        //    console.log(Json);
+        const { name, lat, lon } = Json[0];
+        GettingCityDetails(name, lat, lon);
+    }
+    catch (error) {
+        Error.innerText = `Error has been Occured ${error}`;
+    }
+
+}
+
+// GeoLocation();
+Location_icon.addEventListener('click', () => {
+    GeoLocation();
+})
