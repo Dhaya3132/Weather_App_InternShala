@@ -633,6 +633,10 @@ video {
   width: 24rem;
 }
 
+.w-full{
+  width: 100%;
+}
+
 .cursor-pointer{
   cursor: pointer;
 }
@@ -651,6 +655,10 @@ video {
 
 .justify-between{
   justify-content: space-between;
+}
+
+.justify-around{
+  justify-content: space-around;
 }
 
 .justify-evenly{
@@ -728,7 +736,7 @@ video {
 
 .bg-Button{
   --tw-bg-opacity: 1;
-  background-color: rgb(249 77 0 / var(--tw-bg-opacity));
+  background-color: rgb(90 79 207 / var(--tw-bg-opacity));
 }
 
 .bg-GreyBox{
@@ -847,7 +855,7 @@ video {
 
 .text-Button{
   --tw-text-opacity: 1;
-  color: rgb(249 77 0 / var(--tw-text-opacity));
+  color: rgb(90 79 207 / var(--tw-text-opacity));
 }
 
 .text-gray-500{
@@ -866,7 +874,7 @@ video {
 
 .hover\:bg-Button:hover{
   --tw-bg-opacity: 1;
-  background-color: rgb(249 77 0 / var(--tw-bg-opacity));
+  background-color: rgb(90 79 207 / var(--tw-bg-opacity));
 }
 
 .hover\:text-white:hover{
@@ -877,4 +885,106 @@ video {
 .focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+@media (max-width: 1025px){
+  .Laptop-M\:flex{
+    display: flex;
+  }
+
+  .Laptop-M\:flex-col{
+    flex-direction: column;
+  }
+
+  .Laptop-M\:text-center{
+    text-align: center;
+  }
+}
+
+@media (max-width: 769px){
+  .Tabelt\:order-2{
+    order: 2;
+  }
+
+  .Tabelt\:mt-5{
+    margin-top: 1.25rem;
+  }
+
+  .Tabelt\:flex{
+    display: flex;
+  }
+
+  .Tabelt\:flex-col{
+    flex-direction: column;
+  }
+
+  .Tabelt\:flex-wrap{
+    flex-wrap: wrap;
+  }
+
+  .Tabelt\:justify-center{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 426px){
+  .Mobile-L\:flex{
+    display: flex;
+  }
+
+  .Mobile-L\:w-60{
+    width: 15rem;
+  }
+
+  .Mobile-L\:flex-wrap{
+    flex-wrap: wrap;
+  }
+
+  .Mobile-L\:justify-center{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 376px){
+  .Mobile-M\:flex{
+    display: flex;
+  }
+
+  .Mobile-M\:flex-col{
+    flex-direction: column;
+  }
+
+  .Mobile-M\:flex-wrap{
+    flex-wrap: wrap;
+  }
+
+  .Mobile-M\:justify-center{
+    justify-content: center;
+  }
+
+  .Mobile-M\:p-1{
+    padding: 0.25rem;
+  }
+}
+
+@media (max-width: 321px){
+  .Mobile-S\:h-32{
+    height: 8rem;
+  }
+
+  .Mobile-S\:w-52{
+    width: 13rem;
+  }
+
+  .Mobile-S\:w-32{
+    width: 8rem;
+  }
+
+  .Mobile-S\:w-4{
+    width: 1rem;
+  }
+
+  .Mobile-S\:w-48{
+    width: 12rem;
+  }
 }

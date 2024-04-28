@@ -7,13 +7,16 @@ module.exports = {
         'OpenSans':['Open Sans'],
       },
       colors:{
-        'Button':'#F94D00',
+        'Button':'#5A4FCF',
         'Background':'#ffffff',
         'GreyBox':'#F7F7F7',
       },
       screens: {
-        // 'ssm': {'max': '426px'},
-        // => @media (max-width: 427px)
+        'Laptop-M': {'max': '1025px'},
+        'Tabelt': {'max': '769px'},
+        'Mobile-L':{'max':'426px'},
+        'Mobile-M':{'max':'376px'},
+        'Mobile-S':{'max':'321px'}
       }
     },
   },

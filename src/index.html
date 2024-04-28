@@ -9,16 +9,16 @@
 </head>
 
 <body>
-    <nav class="flex items-center justify-between p-4">
+    <nav class="flex items-center justify-between p-4 w-full Tabelt:flex Tabelt:flex-col">
         <h3 class="font-OpenSans font-semibold text-lg">Weather<span class="text-Button">Pro</span></h3>
 
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center Tabelt:mt-5">
             <div class="location-logo mr-5">
-                <i class="fa-solid fa-location-dot fa-lg cursor-pointer" style="color: #F94D00" ;></i>
+                <i class="fa-solid fa-location-dot fa-lg cursor-pointer" style="color: #5A4FCF" ;></i>
             </div>
             <div class="relative mr-2">
                 <input type="text"
-                    class="border-solid border-2 border-stone-200 p-2 rounded-lg font-poppins focus:outline-none w-96"
+                    class="border-solid border-2 border-stone-200 p-2 rounded-lg font-poppins focus:outline-none w-96 Mobile-L:w-60 Mobile-S:w-48"
                     placeholder="Enter a City" id="City">
                 <div
                     class="absolute inset-y-0 right-0 pr-3 flex items-center bg-bg-color pl-3 rounded-r-lg border-solid border-y-2 border-r-2  border-stone-200">
@@ -40,7 +40,7 @@
         <p class="font-OpenSans text-sm font-bold text-Button" id="emptyerror"></p>
         <h3 class="font-OpenSans text-lg font-bold text-Button">Search your Location now...</h3>
         <div class="mt-4">
-            <ul class="flex items-center gap-4">
+            <ul class="flex items-center gap-4 Mobile-M:flex Mobile-M:flex-wrap Mobile-M:justify-center">
                 <li
                     class="p-2 bg-GreyBox font-OpenSans text-base font-medium rounded-lg border-solid border-2 border-slate-200 hover:bg-Button hover:text-white cursor-pointer	">
                     Coimbatore
@@ -64,22 +64,22 @@
 
     </section>
 
+ 
+    <section class="flex items-center justify-around gap-3 mt-5 Laptop-M:flex Laptop-M:flex-col">
 
-    <section class="flex items-center justify-evenly gap-3 mt-5">
-
-        <div class="p-5">
-            <h3 class="font-OpenSans font-medium text-lg ">Current Weather</h3>
-            <h2 class="font-OpenSans font-bold text-4xl text-Button" id="Time">12:21</h2>
-            <div class="flex items-center gap-5 p-5">
-                <img src="/assests/cloudy.png" class="w-40 h-40" id="Weather_Image">
+        <div class="p-3">
+            <h3 class="font-OpenSans font-medium text-lg Laptop-M:text-center">Current Weather</h3>
+            <h2 class="font-OpenSans font-bold text-4xl text-Button Laptop-M:text-center" id="Time">12:21</h2>
+            <div class="flex items-center gap-3 p-2 Mobile-M:p-1">
+                <img src="/assests/cloudy.png" class="w-40 h-40 Mobile-S:w-32 Mobile-S:h-32" id="Weather_Image">
                 <h2 class="font-OpenSans font-medium text-7xl" id="Degree_temp">28&degC</h2>
             </div>
-            <p class="font-OpenSans text-xl text-gray-500 p-1" id="Main">Sunny</p>
-            <p class="font-OpenSans text-xl text-gray-500 p-1">There will be mostly <span id="descriptions">sunny</span>
+            <p class="font-OpenSans text-xl text-gray-500 p-1 Laptop-M:text-center" id="Main">Sunny</p>
+            <p class="font-OpenSans text-xl text-gray-500 p-1 Laptop-M:text-center" >There will be mostly <span id="descriptions">sunny</span>
             </p>
         </div>
 
-        <section class="flex items-center gap-3">
+        <section class="flex items-center gap-3 Mobile-L:flex Mobile-L:justify-center Mobile-L:flex-wrap Mobile-M:flex-col">
 
             <div class="bg-GreyBox p-5 rounded-lg border-solid border-2 border-slate-200">
                 <div class="flex items-center gap-3">
@@ -126,7 +126,7 @@
             </button>
         </div>
 
-        <ul class="flex gap-5 mt-5" id="List">
+        <ul class="flex gap-5 mt-5 Tabelt:flex Tabelt:flex-wrap Tabelt:justify-center Tabelt:order-2 Mobile-M:flex-col" id="List">
 
         </ul>
 
