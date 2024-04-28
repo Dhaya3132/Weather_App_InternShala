@@ -1,26 +1,20 @@
 const Search_Btn = document.getElementById('search-btn');
 const City_Value = document.getElementById('City');
-
 const time = document.getElementById('Time');
-
-const Temp = document.getElementById('Degree_temp')
-const main = document.getElementById('Main')
-const Description = document.getElementById('descriptions');
-
-const Wind = document.getElementById('Wind_results');
-const Humidy = document.getElementById('Humidity_results');
-const Pressure = document.getElementById('Pressure_results');
-const Visibility = document.getElementById('Visibility_results');
-
-const WeatherImage = document.getElementById('Weather_Image');
-
-const Dailyforecast = document.getElementById('List');
-
-const Error = document.getElementById('error');
-const EmptyError = document.getElementById('emptyerror');
-
+const Recent = document.getElementById('UnOrder-List');
 
 const API_KEY = 'f957da4ecc2e9e6f16151391120c0fcd';
+
+function addingList(props) {
+    const html = `
+    <li class="flex justify-between items-center text-white border-solid border-b-2 border-slate-100 p-2 Cityicon">
+    <h3>${props}</h3>
+</li>
+`
+
+    Recent.innerHTML += html;
+}
+
 
 (function DisplayingTime() {
 
@@ -40,6 +34,14 @@ const API_KEY = 'f957da4ecc2e9e6f16151391120c0fcd';
 
 })();
 
+const Temp = document.getElementById('Degree_temp')
+const main = document.getElementById('Main')
+const Description = document.getElementById('descriptions');
+const Wind = document.getElementById('Wind_results');
+const Humidy = document.getElementById('Humidity_results');
+const Pressure = document.getElementById('Pressure_results');
+const Visibility = document.getElementById('Visibility_results');
+const WeatherImage = document.getElementById('Weather_Image');
 
 function CurrentWeather(props) {
     console.log(props);
@@ -81,8 +83,10 @@ function CurrentWeather(props) {
 
 }
 
-function FiveDay(props) {
 
+
+const Dailyforecast = document.getElementById('List');
+function FiveDay(props) {
 
     const html =
         `<li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl border-solid border-2 border-slate-200">
@@ -128,6 +132,8 @@ function gettingForecast(weather_response) {
     // console.log(ForecastData);
 }
 
+const Error = document.getElementById('error');
+const EmptyError = document.getElementById('emptyerror');
 async function GettingCityDetails(...props) {
     try {
         const WEATHER_API = `http://api.openweathermap.org/data/2.5/forecast?lat=${props[1]}&lon=${props[2]}&appid=${API_KEY}`;
@@ -144,10 +150,10 @@ async function GettingCityDetails(...props) {
 
 
 
-async function gettingGeo() {
+async function gettingGeo(props) {
     try {
-        const CityName = City_Value.value.trim();
-        const GEO_API = `http://api.openweathermap.org/geo/1.0/direct?q=${CityName}&limit=1&appid=${API_KEY}`;
+
+        const GEO_API = `http://api.openweathermap.org/geo/1.0/direct?q=${props}&limit=1&appid=${API_KEY}`;
         const GeoFetching = await fetch(GEO_API);
         const GeoJson = await GeoFetching.json();
         // console.log(GeoJson);
@@ -160,7 +166,6 @@ async function gettingGeo() {
         Error.innerText = 'Please enter a valid Location......';
         Error.innerText = `${error}`;
     }
-
 }
 
 Search_Btn.addEventListener('click', () => {
@@ -169,7 +174,8 @@ Search_Btn.addEventListener('click', () => {
         EmptyError.innerText = 'Please enter a Location.....';
     }
     else {
-        gettingGeo();
+        const CityName = City_Value.value.trim();
+        gettingGeo(CityName);
 
         City_Value.value = '';
 
@@ -177,7 +183,20 @@ Search_Btn.addEventListener('click', () => {
             Dailyforecast.removeChild(Dailyforecast.firstChild);
         }
 
+        localStorage.setItem('City', CityName);
+        if (localStorage.getItem('City')) {
+            addingList(localStorage.getItem('City'));
+        }
     }
-
 })
+
+Recent.addEventListener('click',(e)=>{
+    console.log('clicked');
+    if(e.target.classList.contains('Cityicon'))
+    {
+        const CityNames = e.target.textContent;
+        gettingGeo(CityNames);
+    }
+})
+
 
