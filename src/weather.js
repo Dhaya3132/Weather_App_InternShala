@@ -198,5 +198,3 @@ Recent.addEventListener('click',(e)=>
         gettingGeo(CityNames);
     }
 });
-
-
