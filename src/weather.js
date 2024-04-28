@@ -14,6 +14,7 @@ const Pressure = document.getElementById('Pressure_results');
 const Visibility = document.getElementById('Visibility_results');
 const WeatherImage = document.getElementById('Weather_Image');
 const Location_icon = document.getElementById('location_icon');
+const Current_City = document.getElementById('CurrentCity');
 
 const API_KEY = 'f957da4ecc2e9e6f16151391120c0fcd';
 
@@ -45,7 +46,7 @@ function addingList(props) {
 
 function CurrentWeather(props) {
     // console.log(props);
-    const Temperature = (props.main.temp - 273.15).toFixed(2);
+    const Temperature = (props.main.temp - 273.15).toFixed(1);
     Temp.innerText = `${Temperature}`;
 
     main.innerText = props.weather[0].main;
@@ -98,7 +99,7 @@ function FiveDay(props) {
 }
 
 function LoopingData(props) {
-    // console.log(props);
+    console.log(props);
     props.forEach((element, i) => {
         if (i == 0) {
             CurrentWeather(element);
@@ -123,6 +124,7 @@ function gettingForecast(weather_response) {
 
 async function GettingCityDetails(...props) {
     try {
+        Current_City.innerText = props[0];
         const WEATHER_API = `http://api.openweathermap.org/data/2.5/forecast?lat=${props[1]}&lon=${props[2]}&appid=${API_KEY}`;
         const Weather_Details = await fetch(WEATHER_API);
         const Weather_JSON = await Weather_Details.json();
