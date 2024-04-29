@@ -1,17 +1,16 @@
 <!Doctype html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="output.css" rel="stylesheet">
+    <title>Weather_Pro</title>
     <script src="https://kit.fontawesome.com/f7e4ab5434.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
+    <!-- Navbar -->
     <nav class="flex items-center justify-between p-4 w-full Tabelt:flex Tabelt:flex-col">
         <h3 class="font-OpenSans font-semibold text-lg">Weather<span class="text-Button">Pro</span></h3>
-
         <div class="flex items-center justify-center Tabelt:mt-5">
             <div class="location-logo mr-5">
                 <i class="fa-solid fa-location-dot fa-lg cursor-pointer " id="location_icon" style="color: #5A4FCF" ;></i>
@@ -34,8 +33,8 @@
         </div>
     </nav>
 
+    <!-- Header Content -->
     <section class="flex flex-col justify-evenly items-center mt-10">
-
         <p class="font-OpenSans text-sm font-bold text-Button" id="error"></p>
         <p class="font-OpenSans text-sm font-bold text-Button" id="emptyerror"></p>
         <h3 class="font-OpenSans text-lg font-bold text-Button">Search your Location now...</h3>
@@ -60,13 +59,10 @@
 
             </ul>
         </div>
-
-
     </section>
 
- 
+    <!-- Structure for Current Weather and Current Weather Wind,Humidity,Pressure,Visibility -->
     <section class="flex items-center justify-around gap-3 mt-5 Laptop-M:flex Laptop-M:flex-col">
-
         <div class="p-3">
             <h3 class="font-OpenSans font-light text-4xl text-slate-900 Laptop-M:text-center" id="CurrentCity"></h3>
             <h3 class="font-OpenSans font-medium text-lg Laptop-M:text-center">Current Weather</h3>
@@ -79,9 +75,9 @@
             <p class="font-OpenSans text-xl text-gray-500 p-1 Laptop-M:text-center" >There will be mostly <span id="descriptions">sunny</span>
             </p>
         </div>
-
+        <!-- Wind,Humidity,Pressure,Visibility -->
         <section class="flex items-center gap-3 Mobile-L:flex Mobile-L:justify-center Mobile-L:flex-wrap Mobile-M:flex-col">
-
+            <!-- Wind -->
             <div class="bg-GreyBox p-5 rounded-lg border-solid border-2 border-slate-200">
                 <div class="flex items-center gap-3">
                     <img src="/assests/wind.png" class="w-12 h-12">
@@ -89,7 +85,7 @@
                 </div>
                 <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Wind_results">23</h5>
             </div>
-
+            <!-- Humidity -->
             <div class="bg-GreyBox p-5 rounded-lg border-solid border-2 border-slate-200">
                 <div class="flex items-center gap-3">
                     <img src="/assests/humidity.png" class="w-12 h-12">
@@ -97,7 +93,7 @@
                 </div>
                 <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Humidity_results">23</h5>
             </div>
-
+            <!-- Pressure -->
             <div class="bg-GreyBox p-5 rounded-lg border-solid border-2 border-slate-200">
                 <div class="flex items-center gap-3">
                     <img src="/assests/energy.png" class="w-12 h-12">
@@ -105,7 +101,7 @@
                 </div>
                 <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Pressure_results">23</h5>
             </div>
-
+            <!-- Visibility -->
             <div class="bg-GreyBox p-5 rounded-lg border-solid border-2 border-slate-200">
                 <div class="flex items-center gap-3">
                     <img src="/assests/visibility.png" class="w-12 h-12">
@@ -113,41 +109,31 @@
                 </div>
                 <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Visibility_results">23</h5>
             </div>
-
         </section>
-
     </section>
 
+    <!-- 5 day Forecast Structure -->
     <section id="FiveDaysForecast" class="mt-10 mb-10 flex flex-col justify-evenly items-center">
-
         <div class="flex gap-2">
             <h5 class="font-OpenSans text-xl text-Button font-semibold">Forecast</h5>
             <button class="bg-Button p-1.5 text-Background font-OpenSans font-light text-xs rounded-sm">
                 5 Days
             </button>
         </div>
-
-        <ul class="flex gap-5 mt-5 Tabelt:flex Tabelt:flex-wrap Tabelt:justify-center Tabelt:order-2 Mobile-M:flex-col" id="List">
-
-        </ul>
-
+        <!-- 5 days forecasst will be displayed inside this unorder list -->
+        <ul class="flex gap-5 mt-5 Tabelt:flex Tabelt:flex-wrap Tabelt:justify-center Tabelt:order-2 Mobile-M:flex-col" id="List"></ul>
     </section>
-
+    <!-- Recent History -->
     <section class="flex flex-col justify-center items-center mb-10">
-
         <div class="w-2/4 p-3 flex items-center justify-between rounded-lg bg-Button text-white">
             <h2>Recent History</h2>
             <i class="fa-solid fa-caret-down" id="RecentIcon"></i>
         </div>
-
-        <ul class="bg-Button p-3 w-2/4 mt-5 rounded-lg hidden" id="UnOrder-List">
-
-        </ul>
-
+        <!-- History will be displayed inside this unorder list -->
+        <ul class="bg-Button p-3 w-2/4 mt-5 rounded-lg hidden" id="UnOrder-List"></ul>
     </section>
-
+    <!-- Funcationality -->
     <script src="weather.js"></script>
     <script src="CRUD.js"></script>
 </body>
-
 </html>
