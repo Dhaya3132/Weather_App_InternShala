@@ -34,4 +34,3 @@ Login explanation : After getting 5 day forecase wants to filter out the data. t
 8 -> GeoLocation API - OpenWeather api
 
 9 -> LocalStorage - city will be added with key in the name of City:CityName; PROBLEM - KEY IS GETTING OVERWRITTEN;
-
