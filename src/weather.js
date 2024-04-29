@@ -193,8 +193,7 @@ async function gettingGeo(props) {
         GettingCityDetails(name, lat, lon);
     }
     catch (error) {
-        Error.innerText = 'Please enter a valid Location......';
-        Error.innerText = `${error}`;
+        Error.innerText = 'Invalid Location, Please enter a valid Location';
     }
 }
 
@@ -210,7 +209,7 @@ async function gettingGeo(props) {
 
 Search_Btn.addEventListener('click', () => {
     if (City_Value.value === "") {
-        EmptyError.innerText = 'Please enter a Location.....';
+        EmptyError.innerText = 'Please enter a Location';
     } 
     else {   
         const CityName = City_Value.value.trim();     

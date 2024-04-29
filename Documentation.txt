@@ -1,4 +1,6 @@
 GITHUB - https://github.com/Dhaya3132/Weather_App_InternShala 
+NOTE - Before if the node modules are not available please install the modules by npm install.
+       Checks the tailwind config and paths.
 
 1 -> Problem Faced - 
 
