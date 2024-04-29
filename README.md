@@ -1,0 +1,35 @@
+1 -> Problem Faced - 
+
+The Problem faced here : After getting the 6 day forecast it contains 6 days include and each days contains 5 hours weather. 
+I literally stuck here how to get the single day contain single weather data. I didn't get any logic to apply here 
+After sometimes i can use the filter method to get that data but inside the filter method how can i get the data again stucked here.
+I have search internet to get some login to filter out the data literally i have seen 20 plus sites regarding the login but nothings seems to match out outdated logic and api.Lastly i found this logic in codingNepal. after understanding the concept i have used here.
+
+2 -> Logic Used - 
+
+Login explanation : After getting 5 day forecase wants to filter out the data. the datas are inside the list.
+                    so that i have filtering from list -> "resultantdata.list.filter();"
+                    inside the filter methods the datas are passed "resultantdata.list.filter(data,()=>{})";
+                    const Final = new Date(data.dt_txt).getDate(); -> it extract day from the date using new date().get gate() object -> it returns a unique date in the list.
+                    afted getting the single date then adding them into list for that initalised empty list if the list is empty the value does not match in list it adds to list. suppose if the value match in the list it rejects.
+                    Note - Reference from internet.
+                    My logic -> I have used to implement by current weather api and five days weather api but it makes the code complex and it end it up with failure so i used as an reference.
+
+3 -> Icons - FontAwesome webste.
+4 -> Weather Image - IconDuck
+
+5 -> Responsive Breakpoints - Created custom breakpoint for Laptop Tabelt mobile Larger, Mobile Medium, Mobile Small
+                              'Laptop-M': {'max': '1025px'},
+                              'Tabelt': {'max': '769px'},
+                              'Mobile-L':{'max':'426px'},
+                              'Mobile-M':{'max':'376px'},
+                              'Mobile-S':{'max':'321px'}
+
+6 -> Color Palate - Coolors Primary - #5A4FCF, Secondary - #F7F7F7
+
+7 -> API - OpenWeather Api Used three api url GeoCoding Api, Reverese GeoCoding Api, Forecase Api.
+
+8 -> GeoLocation API - OpenWeather api
+
+9 -> LocalStorage - city will be added with key in the name of City:CityName; PROBLEM - KEY IS GETTING OVERWRITTEN;
+
