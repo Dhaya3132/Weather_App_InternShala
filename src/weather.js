@@ -67,28 +67,28 @@ function CurrentWeather(props) {
     Visibility.innerText = props.visibility;
 
     if (props.weather[0].main == 'Clouds') {
-        WeatherImage.src = '/assests/weather-app-img/images/Clouds.png';
+        WeatherImage.src = '../assests/weather-app-img/images/Clouds.png';
     }
     else if (props.weather[0].main == 'Clear') {
-        WeatherImage.src = '/assests/weather-app-img/images/Clear.png';
+        WeatherImage.src = '../assests/weather-app-img/images/Clear.png';
     }
     else if (props.weather[0].main == 'Rain') {
-        WeatherImage.src = '/assests/weather-app-img/images/Rain.png';
+        WeatherImage.src = '../assests/weather-app-img/images/Rain.png';
     }
     else if (props.weather[0].main == 'Drizzle') {
-        WeatherImage.src = '/assests/weather-app-img/images/Drizzle.png';
+        WeatherImage.src = '../assests/weather-app-img/images/Drizzle.png';
     }
     else if (props.weather[0].main == 'Mist') {
-        WeatherImage.src = '/assests/weather-app-img/images/Mist.png';
+        WeatherImage.src = '../assests/weather-app-img/images/Mist.png';
     }
     else if (props.weather[0].main == 'Humidity') {
-        WeatherImage.src = '/assests/weather-app-img/images/Humidity.png';
+        WeatherImage.src = '../assests/weather-app-img/images/Humidity.png';
     }
     else if (props.weather[0].main == 'Snow') {
-        WeatherImage.src = '/assests/weather-app-img/images/Snow.png';
+        WeatherImage.src = '../assests/weather-app-img/images/Snow.png';
     }
     else if (props.weather[0].main == 'Wind') {
-        WeatherImage.src = '/assests/weather-app-img/images/Wind.png';
+        WeatherImage.src = '../assests/weather-app-img/images/Wind.png';
     }
 }
 
@@ -102,7 +102,7 @@ function FiveDay(props) {
     const html =
         `<li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl border-solid border-2 border-slate-200">
         <h3 id="Date" class="font-OpenSans text-lg font-semibold">${props.dt_txt.split(" ")[0]}</h3>
-        <img src="/assests/weather-app-img/images/${props.weather[0].main}.png" class="w-12 h-12">
+        <img src="../assests/weather-app-img/images/${props.weather[0].main}.png" class="w-12 h-12">
             <div class="mt3 text-center">
                 <h5 class="font-OpenSans text-base font-medium m-1">Temp : ${(props.main.temp - 273.15).toFixed(2)}&deg</h5>
                 <h5 class="font-OpenSans text-base font-medium m-1">Wind : ${props.wind.speed}&deg</h5>
@@ -118,7 +118,7 @@ function FiveDay(props) {
 //                    else the data details will be passed to fiveday forecast function.
 
 function LoopingData(props) {
-    console.log(props);
+    // console.log(props);
     props.forEach((element, i) => {
         if (i == 0) {
             CurrentWeather(element);
@@ -191,6 +191,7 @@ async function gettingGeo(props) {
         // console.log(GeoJson);
         const { name, lat, lon } = GeoJson[0];
         GettingCityDetails(name, lat, lon);
+        console.log(props);
     }
     catch (error) {
         Error.innerText = 'Invalid Location, Please enter a valid Location';
