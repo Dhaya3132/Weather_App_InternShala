@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="output.css" rel="stylesheet">
+    <link href="/src/output.css" rel="stylesheet">
     <title>Weather_Pro</title>
     <script src="https://kit.fontawesome.com/f7e4ab5434.js" crossorigin="anonymous"></script>
 </head>
@@ -68,7 +68,7 @@
             <h3 class="font-OpenSans font-medium text-lg Laptop-M:text-center">Current Weather</h3>
             <h2 class="font-OpenSans font-bold text-4xl text-Button Laptop-M:text-center" id="Time"></h2>
             <div class="flex items-center gap-3 p-2 Mobile-M:p-1 Mobile-S:p-0">
-                <img src="../assests/cloudy.png" class="w-40 h-40 Mobile-S:w-32 Mobile-S:h-32" id="Weather_Image">
+                <img src="/assests/cloudy.png" class="w-40 h-40 Mobile-S:w-32 Mobile-S:h-32" id="Weather_Image">
                 <h2 class="font-OpenSans font-medium text-7xl Mobile-S:text-5xl"><span id="Degree_temp">--</span>&degC</h2>
             </div>
             <p class="font-OpenSans text-xl text-gray-500 p-1 Laptop-M:text-center" id="Main">--</p>
@@ -80,7 +80,7 @@
             <!-- Wind -->
             <div class="bg-GreyBox p-5 rounded-lg border-solid border-2 border-slate-200">
                 <div class="flex items-center gap-3">
-                    <img src="../assests/wind.png" class="w-12 h-12">
+                    <img src="/assests/wind.png" class="w-12 h-12">
                     <h2 class="font-OpenSans text-xl font-medium">Wind</h2>
                 </div>
                 <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Wind_results">--</h5>
@@ -88,7 +88,7 @@
             <!-- Humidity -->
             <div class="bg-GreyBox p-5 rounded-lg border-solid border-2 border-slate-200">
                 <div class="flex items-center gap-3">
-                    <img src="../assests/humidity.png" class="w-12 h-12">
+                    <img src="/assests/humidity.png" class="w-12 h-12">
                     <h2 class="font-OpenSans text-xl font-medium">Humidity</h2>
                 </div>
                 <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Humidity_results">--</h5>
@@ -96,7 +96,7 @@
             <!-- Pressure -->
             <div class="bg-GreyBox p-5 rounded-lg border-solid border-2 border-slate-200">
                 <div class="flex items-center gap-3">
-                    <img src="../assests/energy.png" class="w-12 h-12">
+                    <img src="/assests/energy.png" class="w-12 h-12">
                     <h2 class="font-OpenSans text-xl font-medium">Pressure</h2>
                 </div>
                 <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Pressure_results">--</h5>
@@ -104,7 +104,7 @@
             <!-- Visibility -->
             <div class="bg-GreyBox p-5 rounded-lg border-solid border-2 border-slate-200">
                 <div class="flex items-center gap-3">
-                    <img src="../assests/visibility.png" class="w-12 h-12">
+                    <img src="/assests/visibility.png" class="w-12 h-12">
                     <h2 class="font-OpenSans text-xl font-medium">Visibility</h2>
                 </div>
                 <h5 class="font-OpenSans text-3xl font-semibold text-Button m-1" id="Visibility_results">--</h5>
@@ -133,7 +133,7 @@
         <ul class="bg-Button p-3 w-2/4 mt-5 rounded-lg hidden" id="UnOrder-List"></ul>
     </section>
     <!-- Funcationality -->
-    <script src="CRUD.js"></script>
-    <script src="weather.js"></script>
+    <script src="/src/CRUD.js"></script>
+    <script src="/src/weather.js"></script>
 </body>
 </html>
