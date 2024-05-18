@@ -4,12 +4,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        'OpenSans':['Open Sans'],
+        'Questrial':['Questrial'],
       },
       colors:{
         'Button':'#5A4FCF',
         'Background':'#ffffff',
         'GreyBox':'#F7F7F7',
+        'Neon':'#FEFEFA',
+        'Buttons':'#FFFFFF',
+        'Dark':'#1b1b1b',
+        'Elephant':'#8b8b8b',
       },
       screens: {
         'Laptop-M': {'max': '1025px'},

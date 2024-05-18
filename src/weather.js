@@ -100,7 +100,7 @@ function CurrentWeather(props) {
 function FiveDay(props) {
 
     const html =
-        `<li class="bg-GreyBox flex flex-col justify-center items-center p-7 rounded-xl border-solid border-2 border-slate-200">
+        `<li class="flex flex-col justify-center items-center p-10 text-white border-solid border-r-2 border-slate-100 border-opacity-70">
         <h3 id="Date" class="font-OpenSans text-lg font-semibold">${props.dt_txt.split(" ")[0]}</h3>
         <img src="../assests/weather-app-img/images/${props.weather[0].main}.png" class="w-12 h-12">
             <div class="mt3 text-center">
@@ -109,7 +109,7 @@ function FiveDay(props) {
                 <h5 class="font-OpenSans text-base font-medium m-1">Humidity : ${props.main.humidity}&deg</h5>
             </div>
     </li>`
-    Dailyforecast.innerHTML += html
+    Dailyforecast.innerHTML += html;
 }
 
 // Step - 05 
@@ -227,9 +227,9 @@ Search_Btn.addEventListener('click', () => {
 // Before getting the value from localstorgae need to if there is any value in local storage.
 //After getting value from local storage passing value to function to add the list inside recent history unorder list.
 
-if (localStorage.getItem('City')) {
-    addingList(localStorage.getItem('City'));
-}
+// if (localStorage.getItem('City')) {
+//     addingList(localStorage.getItem('City'));
+// }
 
 // Step - 12
 // Adding EventListner to the RecentHistory underorder list.
@@ -237,17 +237,17 @@ if (localStorage.getItem('City')) {
 // After getting the textcontent value Note-> Here textcontent value is cityvalue.
 // Then value is passed to the GettingGeo function step - 02
 
-Recent.addEventListener('click', (e) => {
-    // console.log('clicked');
-    if (e.target.classList.contains('Cityicon'))
-     {
-        const CityNames = e.target.textContent;
-        while (Dailyforecast.firstChild) {
-            Dailyforecast.removeChild(Dailyforecast.firstChild);
-        }
-        gettingGeo(CityNames);
-    }
-});
+// Recent.addEventListener('click', (e) => {
+//     // console.log('clicked');
+//     if (e.target.classList.contains('Cityicon'))
+//      {
+//         const CityNames = e.target.textContent;
+//         while (Dailyforecast.firstChild) {
+//             Dailyforecast.removeChild(Dailyforecast.firstChild);
+//         }
+//         gettingGeo(CityNames);
+//     }
+// });
 
 // Step - 11 
 // This create new promise if the api failed to fetch the current lati and lon it need to reject and throw the error. 
